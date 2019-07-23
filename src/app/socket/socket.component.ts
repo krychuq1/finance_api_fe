@@ -5,7 +5,7 @@ import { Socket } from 'ngx-socket-io';
 @Component({
   selector: 'app-socket',
   templateUrl: './socket.component.html',
-  styleUrls: ['./socket.component.css']
+  styleUrls: ['./socket.component.scss']
 })
 export class SocketComponent implements OnInit {
 
