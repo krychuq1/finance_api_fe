@@ -3,8 +3,11 @@
     <div class="logo">
       <p>logo</p>
     </div>
-    <div class="action-button">
+    <div class="action-button" *ngIf="!user">
       <button mat-raised-button color="primary" (click)="login()">Login</button>
+    </div>
+    <div *ngIf="user">
+      <p>Welcome, {{user.login}}</p>
     </div>
   </div>
 </div>

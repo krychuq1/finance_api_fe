@@ -1,2 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 @import "styles/my-theme";
+@import '~ngx-toastr/toastr';
+@import "styles/dialog";
+@import "styles/spinner";

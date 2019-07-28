@@ -1,0 +1,23 @@
+<div class="dialog" *ngIf="!loading">
+<h1>Login</h1>
+
+<!--f.form.valid &&-->
+<form name="form" [formGroup]="loginForm" (ngSubmit)="!loginForm.errors && onSubmit()"  novalidate>
+  <mat-form-field appearance="outline">
+    <input matInput  placeholder="login" type="text" formControlName="loginControl"
+           autocomplete="off">
+    <mat-error *ngIf="loginForm.get('loginControl').hasError('required')">login is required</mat-error>
+    <mat-error *ngIf="loginForm.get('loginControl').hasError('minlength')">login should be at least 1 char long</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <input matInput placeholder="password" type="password"
+           autocomplete="off" formControlName="passwordControl">
+    <mat-error *ngIf="loginForm.get('passwordControl').hasError('required')">password is required</mat-error>
+    <mat-error *ngIf="loginForm.get('passwordControl').hasError('minlength')">password should be at least 1 char long</mat-error>
+  </mat-form-field>
+  <button mat-raised-button color="accent">login</button>
+
+</form>
+
+</div>
+<mat-spinner color="accent" class="spinner" *ngIf="loading"></mat-spinner>
