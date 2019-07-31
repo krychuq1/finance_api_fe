@@ -13,6 +13,7 @@ export class UserService {
   user: IUser;
   userSubject = new Subject<IUser>();
   constructor(private http: HttpClient) {
+    console.log('user service inti');
   }
   async login(user: LoginDto) {
     // https://stackoverflow.com/questions/53656059/angular-6-async-await-not-working-on-http-request

@@ -9,21 +9,23 @@ import { HeaderComponent } from './components/header/header.component';
 import {LoginComponent} from './dialogs/login/login.component';
 import {FormBuilder, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {SocketComponent} from './socket/socket.component';
 import {ToastrModule} from 'ngx-toastr';
+import {SocketIoConfig, SocketIoModule} from 'ngx-socket-io';
+import {environment} from '../environments/environment';
 
+const config: SocketIoConfig = { url: environment.apiUrl, options: {} };
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    LoginComponent,
-    SocketComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     HttpClientModule,
+    SocketIoModule.forRoot(config),
     MyMaterialModule,
     AppRoutingModule,
     ReactiveFormsModule,
