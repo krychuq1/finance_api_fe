@@ -1,7 +1,24 @@
 <div>
   <app-header></app-header>
   <router-outlet></router-outlet>
-  {{crypto | json}}
-
+  <div *ngIf="crypto">
+    <h1>crypto</h1>
+    <div *ngFor="let c of crypto">
+      <app-asset-box [symbol]="c.crypto" [price]="c.price"></app-asset-box>
+    </div>
+  </div>
+  <!--<div>-->
+    <!--<h1>metals</h1>-->
+    <!--<app-asset-box [symbol]="'gold'" [price]="metal.gold.total"></app-asset-box>-->
+    <!--<app-asset-box [symbol]="'silver'" [price]="metal.silver.total"></app-asset-box>-->
+    <!--&lt;!&ndash;<p>{{metal | json}}</p>&ndash;&gt;-->
+  <!--</div>-->
+  <!--<div>-->
+    <!--<h1>polish stock</h1>-->
+    <!--<div *ngFor="let s of stock">-->
+      <!--<app-asset-box [symbol]="s.symbol" [price]="s.price"></app-asset-box>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<p>{{stock | json}}</p>-->
 </div>
 

@@ -12,13 +12,15 @@ import {HttpClientModule} from '@angular/common/http';
 import {ToastrModule} from 'ngx-toastr';
 import {SocketIoConfig, SocketIoModule} from 'ngx-socket-io';
 import {environment} from '../environments/environment';
+import {AssetBoxComponent} from './components/asset-box/asset-box.component';
 
 const config: SocketIoConfig = { url: environment.apiUrl, options: {} };
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
+    AssetBoxComponent
   ],
   imports: [
     BrowserModule,
