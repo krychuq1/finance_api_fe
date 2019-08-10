@@ -4,15 +4,18 @@
   <div *ngIf="crypto">
     <h1>crypto</h1>
     <div *ngFor="let c of crypto">
-      <app-asset-box [symbol]="c.crypto" [price]="c.price"></app-asset-box>
+      <app-asset-box [symbol]="c.crypto" [price]="c.price | number: '1.2-2'"></app-asset-box>
     </div>
   </div>
-  <!--<div>-->
-    <!--<h1>metals</h1>-->
-    <!--<app-asset-box [symbol]="'gold'" [price]="metal.gold.total"></app-asset-box>-->
+  <div *ngIf="metals">
+    <h1 >metals</h1>
+    <div *ngFor="let m of metals">
+      <app-asset-box [symbol]="m.type" [price]="m.price | number: '1.2-2'"></app-asset-box>
+    </div>
+
     <!--<app-asset-box [symbol]="'silver'" [price]="metal.silver.total"></app-asset-box>-->
-    <!--&lt;!&ndash;<p>{{metal | json}}</p>&ndash;&gt;-->
-  <!--</div>-->
+    <!--<p>{{metals | json}}</p>-->
+  </div>
   <!--<div>-->
     <!--<h1>polish stock</h1>-->
     <!--<div *ngFor="let s of stock">-->
