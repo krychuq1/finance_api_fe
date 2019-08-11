@@ -1,27 +1,44 @@
-<div>
+<div class="dashboard">
   <app-header></app-header>
   <router-outlet></router-outlet>
-  <div *ngIf="crypto">
-    <h1>crypto</h1>
-    <div *ngFor="let c of crypto">
-      <app-asset-box [symbol]="c.crypto" [price]="c.price | number: '1.2-2'"></app-asset-box>
+  <div class="assets">
+    <div class="asset">
+      <h1>Crypto</h1>
+      <app-crypto *ngIf="crypto" [crypto]="crypto"></app-crypto>
+      <mat-spinner color="accent" class="spinner" *ngIf="!crypto"></mat-spinner>
+    </div>
+    <div class="asset">
+      <h1>Metals</h1>
+      <app-metal [metals]="metals" *ngIf="metals"></app-metal>
+      <mat-spinner color="accent" class="spinner" *ngIf="!metals"></mat-spinner>
+    </div>
+    <div class="asset">
+      <h1>Polish stock</h1>
+      <app-stock [stocks]="stocks" *ngIf="stocks"></app-stock>
+      <mat-spinner color="accent" class="spinner" *ngIf="!stocks"></mat-spinner>
+    </div>
+    <div class="asset">
+      <h1>Currencies</h1>
+      <app-currency [currencies]="currencies" *ngIf="currencies"></app-currency>
+      <mat-spinner color="accent" class="spinner" *ngIf="!currencies"></mat-spinner>
     </div>
   </div>
-  <div *ngIf="metals">
-    <h1 >metals</h1>
-    <div *ngFor="let m of metals">
-      <app-asset-box [symbol]="m.type" [price]="m.price | number: '1.2-2'"></app-asset-box>
-    </div>
 
-    <!--<app-asset-box [symbol]="'silver'" [price]="metal.silver.total"></app-asset-box>-->
-    <!--<p>{{metals | json}}</p>-->
+  <div *ngIf="userService.user">
+    <h1>Your portfolio</h1>
+    <p>{{userService.user | json}}</p>
   </div>
   <!--<div>-->
     <!--<h1>polish stock</h1>-->
-    <!--<div *ngFor="let s of stock">-->
-      <!--<app-asset-box [symbol]="s.symbol" [price]="s.price"></app-asset-box>-->
+    <!--<div *ngFor="let s of stocks">-->
+      <!--<app-asset-box [symbol]="s.symbol" [price]="s.price | number: '1.2-2'" [currency]="s.currency"></app-asset-box>-->
     <!--</div>-->
   <!--</div>-->
-  <!--<p>{{stock | json}}</p>-->
+  <!--<div *ngIf="currencies">-->
+    <!--<h1>Currencies</h1>-->
+    <!--<div *ngFor="let c of currencies.rates">-->
+      <!--<app-asset-box [symbol]="c.symbol" [price]="1/c.price | number: '1.4-4'"></app-asset-box>-->
+    <!--</div>-->
+  <!--</div>-->
 </div>
 

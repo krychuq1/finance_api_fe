@@ -1,0 +1,5 @@
+<!--{{currencies | json}}-->
+<div *ngFor="let c of currencies.rates">
+  {{c.symbol}} {{1/c.price | number: '1.4-4'}}
+  <!--<app-asset-box [symbol]="c.symbol" [price]="1/c.price | number: '1.4-4'"></app-asset-box>-->
+</div>

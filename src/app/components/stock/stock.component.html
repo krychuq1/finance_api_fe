@@ -1,0 +1,4 @@
+<div *ngFor="let s of stocks">
+  {{s.symbol}} {{s.price}} {{s.currency}}
+  <!--<app-asset-box [symbol]="s.symbol" [price]="s.price | number: '1.2-2'" [currency]="s.currency"></app-asset-box>-->
+</div>

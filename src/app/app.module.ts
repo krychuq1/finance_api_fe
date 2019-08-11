@@ -13,6 +13,10 @@ import {ToastrModule} from 'ngx-toastr';
 import {SocketIoConfig, SocketIoModule} from 'ngx-socket-io';
 import {environment} from '../environments/environment';
 import {AssetBoxComponent} from './components/asset-box/asset-box.component';
+import {CryptoComponent} from './components/crypto/crypto.component';
+import {MetalComponent} from './components/metal/metal.component';
+import {StockComponent} from './components/stock/stock.component';
+import {CurrencyComponent} from './components/currency/currency.component';
 
 const config: SocketIoConfig = { url: environment.apiUrl, options: {} };
 @NgModule({
@@ -20,7 +24,11 @@ const config: SocketIoConfig = { url: environment.apiUrl, options: {} };
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    AssetBoxComponent
+    AssetBoxComponent,
+    CryptoComponent,
+    MetalComponent,
+    StockComponent,
+    CurrencyComponent
   ],
   imports: [
     BrowserModule,
