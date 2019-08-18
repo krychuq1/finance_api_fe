@@ -17,6 +17,7 @@ import {CryptoComponent} from './components/crypto/crypto.component';
 import {MetalComponent} from './components/metal/metal.component';
 import {StockComponent} from './components/stock/stock.component';
 import {CurrencyComponent} from './components/currency/currency.component';
+import {MetalDialogComponent} from './dialogs/metal-dialog/metal-dialog.component';
 
 const config: SocketIoConfig = { url: environment.apiUrl, options: {} };
 @NgModule({
@@ -28,7 +29,8 @@ const config: SocketIoConfig = { url: environment.apiUrl, options: {} };
     CryptoComponent,
     MetalComponent,
     StockComponent,
-    CurrencyComponent
+    CurrencyComponent,
+    MetalDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,6 @@ const config: SocketIoConfig = { url: environment.apiUrl, options: {} };
   ],
   providers: [FormBuilder],
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent]
+  entryComponents: [LoginComponent, MetalDialogComponent]
 })
 export class AppModule { }

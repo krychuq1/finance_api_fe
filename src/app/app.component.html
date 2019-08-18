@@ -10,6 +10,7 @@
     <div class="asset">
       <h1>Metals</h1>
       <app-metal [metals]="metals" *ngIf="metals"></app-metal>
+      <button mat-raised-button color="accent" (click)="addMetal()">add metal to user</button>
       <mat-spinner color="accent" class="spinner" *ngIf="!metals"></mat-spinner>
     </div>
     <div class="asset">
@@ -26,7 +27,14 @@
 
   <div *ngIf="userService.user">
     <h1>Your portfolio</h1>
-    <p>{{userService.user | json}}</p>
+    <p><b>metals: {{metalTotal | number: '1.2-2'}}$</b></p>
+    <div *ngFor="let m of userService.user.metals">
+    =================
+      <p>{{m.type}}</p>
+      <p>amount: {{m.oz}}oz</p>
+      <p>total: {{m.oz * pricesService[m.type]}}$</p>
+    =================
+    </div>
   </div>
   <!--<div>-->
     <!--<h1>polish stock</h1>-->
